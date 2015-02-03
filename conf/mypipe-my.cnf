@@ -1,0 +1,14 @@
+[mysqld]
+datadir=/var/lib/mysql-mypipe
+socket=/var/lib/mysql-mypipe/mysql.sock
+user=mysql
+server-id=112233
+log_bin=mysql-bin
+expire_logs_days=1
+binlog_format=row
+port=33003
+symbolic-links=0
+
+[mysqld_safe]
+log-error=/var/log/mysql-mypipe/mysqld.log
+pid-file=/var/run/mysql-mypipe/mysqld.pid
