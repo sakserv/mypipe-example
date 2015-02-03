@@ -17,7 +17,7 @@ MYPIPE_DL_DIR=/tmp/mypipe
 MYPIPE_INST_DIR=/usr/lib/mypipe
 
 MYSQL_DATA_DIR=/var/lib/mysql-mypipe
-MYSQL_CONF_DIR=conf
+MYSQL_CONF_DIR=/tmp/mypipe-example/conf
 MYSQL_CONF_FILE=$MYSQL_CONF_DIR/mypipe-my.cnf
 MYSQL_FINAL_CONF_FILE=/etc/mypipe-my.cnf
 
