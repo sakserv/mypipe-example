@@ -28,4 +28,4 @@ cd $MYPIPE_DL_DIR/mypipe && bash ./sbt package
 if [ -d "$MYPIPE_INST_DIR" ]; then
   rm -rf $MYPIPE_INST_DIR
 fi
-cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
+mkdir $MYPIPE_INST_DIR && cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
