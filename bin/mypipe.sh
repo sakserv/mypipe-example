@@ -51,3 +51,8 @@ mkdir -p $MYSQL_LOG_DIR && chown mysql:mysql $MYSQL_LOG_DIR
 mkdir -p $MYSQL_RUN_DIR && chown mysql:mysql $MYSQL_RUN_DIR
 mysql_install_db --user=mysql --defaults-file=$MYSQL_FINAL_CONF_FILE
 mysqld_safe --defaults-file=$MYSQL_FINAL_CONF_FILE
+
+# Configure the new mysql instance
+echo -e "\n###  Configuring MySQL"
+/usr/bin/mysqladmin -u root password 'horton'
+/usr/bin/mysqladmin -u root -h sandbox.hortonworks.com password 'horton'
