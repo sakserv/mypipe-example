@@ -13,11 +13,19 @@
 #  limitations under the License.
 #
 
+MYPIPE_DL_DIR=/tmp/mypipe
+MYPIPE_INST_DIR=/usr/lib/mypipe
+
 # Download and build mypipe
-if [ -d /tmp/mypipe ]; then
-  rm -rf /tmp/mypipe
+if [ -d "$MYPIPE_DL_DIR" ]; then
+  rm -rf $MYPIPE_DL_DIR
 fi
-mkdir /tmp/mypipe
-cd /tmp/mypipe
-git clone git@github.com:mardambey/mypipe.git
-cd mypipe && ./sbt package
+mkdir $MYPIPE_DL_DIR
+cd $MYPIPE_DL_DIR && git clone git@github.com:mardambey/mypipe.git
+cd $MYPIPE_DL_DIR/mypipe && bash ./sbt package
+
+# Copy into the inst_dir
+if [ -d "$MYPIPE_INST_DIR" ]; then
+  rm -rf $MYPIPE_INST_DIR
+fi
+cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
