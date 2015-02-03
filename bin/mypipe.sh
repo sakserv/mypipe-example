@@ -17,6 +17,7 @@ MYPIPE_DL_DIR=/tmp/mypipe
 MYPIPE_INST_DIR=/usr/lib/mypipe
 
 MYSQL_DATA_DIR=/var/lib/mysql-mypipe
+MYSQL_TMP_DIR=/var/lib/mysql-mypipe/tmp
 MYSQL_CONF_DIR=/tmp/mypipe-example/conf
 MYSQL_CONF_FILE=$MYSQL_CONF_DIR/mypipe-my.cnf
 MYSQL_FINAL_CONF_FILE=/etc/mypipe-my.cnf
@@ -45,6 +46,7 @@ mkdir $MYPIPE_INST_DIR && cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
 echo -e "\n###  Configuring a new MySQL instance"
 cp $MYSQL_CONF_FILE $MYSQL_FINAL_CONF_FILE
 mkdir -p $MYSQL_DATA_DIR && chown mysql:mysql $MYSQL_DATA_DIR
+mkdir -p $MYSQL_TMP_DIR && chown mysql:mysql $MYSQL_TMP_DIR && chmod -f 1777 $MYSQL_TMP_DIR
 mkdir -p $MYSQL_LOG_DIR && chown mysql:mysql $MYSQL_LOG_DIR
 mkdir -p $MYSQL_RUN_DIR && chown mysql:mysql $MYSQL_RUN_DIR
 mysql_install_db --user=mysql --datadir $MYSQL_DATA_DIR

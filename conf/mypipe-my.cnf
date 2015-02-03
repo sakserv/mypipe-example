@@ -1,6 +1,7 @@
 [mysqld]
 datadir=/var/lib/mysql-mypipe
 socket=/var/lib/mysql-mypipe/mysql.sock
+tmpdir=/var/lib/mysql-mypipe/tmp
 user=mysql
 server-id=112233
 log_bin=mysql-bin
