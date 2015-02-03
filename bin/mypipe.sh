@@ -49,5 +49,5 @@ mkdir -p $MYSQL_DATA_DIR && chown mysql:mysql $MYSQL_DATA_DIR
 mkdir -p $MYSQL_TMP_DIR && chown mysql:mysql $MYSQL_TMP_DIR && chmod -f 1777 $MYSQL_TMP_DIR
 mkdir -p $MYSQL_LOG_DIR && chown mysql:mysql $MYSQL_LOG_DIR
 mkdir -p $MYSQL_RUN_DIR && chown mysql:mysql $MYSQL_RUN_DIR
-mysql_install_db --user=mysql --datadir $MYSQL_DATA_DIR
+mysql_install_db --user=mysql --defaults-file=$MYSQL_FINAL_CONF_FILE
 mysqld_safe --defaults-file=$MYSQL_FINAL_CONF_FILE
