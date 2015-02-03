@@ -16,20 +16,17 @@ Usage
 
 The following outlines how to use this project.
 
-1. Clone the repo:
-
+* Clone the repo:
 ```
 cd /tmp && git clone https://github.com/sakserv/mypipe-example.git
 ```
 
-2. Build the project using maven
-
+* Build the project using maven
 ```
 cd /tmp/mypipe-example && mvn clean package
 ```
 
-3. Setup mypipe
-
+* Setup mypipe
 ```
-cd /tmp/mypipe-example && bin/mypipe.sh
+cd /tmp/mypipe-example && bash bin/mypipe.sh
 ```
