@@ -28,7 +28,7 @@ if [ -d "$MYPIPE_DL_DIR" ]; then
   rm -rf $MYPIPE_DL_DIR
 fi
 mkdir $MYPIPE_DL_DIR
-cd $MYPIPE_DL_DIR && git clone https://github.com/mardambey/mypipe.git
+cd $MYPIPE_DL_DIR && git clone https://github.com/sakserv/mypipe.git
 
 # Copy into the inst_dir
 echo -e "\n###  Installing mypipe to $MYPIPE_INST_DIR"
