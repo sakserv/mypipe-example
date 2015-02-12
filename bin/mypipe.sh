@@ -23,13 +23,12 @@ MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
 
 # Download and build mypipe
-echo -e "\n###  Downloading and Building mypipe"
+echo -e "\n###  Downloading mypipe"
 if [ -d "$MYPIPE_DL_DIR" ]; then
   rm -rf $MYPIPE_DL_DIR
 fi
 mkdir $MYPIPE_DL_DIR
 cd $MYPIPE_DL_DIR && git clone git@github.com:mardambey/mypipe.git
-cd $MYPIPE_DL_DIR/mypipe && bash ./sbt package
 
 # Copy into the inst_dir
 echo -e "\n###  Installing mypipe to $MYPIPE_INST_DIR"
@@ -37,6 +36,10 @@ if [ -d "$MYPIPE_INST_DIR" ]; then
   rm -rf $MYPIPE_INST_DIR
 fi
 mkdir $MYPIPE_INST_DIR && cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
+
+# Building mypipe
+echo -e "\n###  Building mypipe"
+cd $MYPIPE_INST_DIR && bash ./sbt package
 
 # Lay down the populated application.conf
 echo -e "\n###  Populating and installing application.conf"
@@ -47,4 +50,4 @@ sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
 
 # Start mypipe
 echo -e "\n###  Starting mypipe"
-cd $MYPIPE_INST_DIR && ./sbt "project runner" "runMain mypipe.runner.PipeRunner"
+cd $MYPIPE_INST_DIR && bash ./sbt "project runner" "runMain mypipe.runner.PipeRunner"
