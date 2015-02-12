@@ -16,7 +16,8 @@
 MYPIPE_DL_DIR=/tmp/mypipe
 MYPIPE_INST_DIR=/usr/lib/mypipe
 MYPIPE_APP_CONF_SRC=/tmp/mypipe-example/conf/application.conf
-MYPIPE_DBNAME=mypipe
+MYPIPE_APP_CONF_DEST=/usr/lib/mypipe/mypipe-runner/target/scala-2.10/classes/application.conf
+MYPIPE_DBHOST=127.0.0.1
 MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
@@ -39,7 +40,7 @@ mkdir $MYPIPE_INST_DIR && cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
 
 # Lay down the populated application.conf
 echo -e "\n###  Populating and installing application.conf"
-sed -i "s|@@DBNAME@@|$MYPIPE_DBNAME|g" $MYPIPE_APP_CONF_SRC
-sed -i "s|@@DBPORT@@|$MYPIPE_DBPORT|g" $MYPIPE_APP_CONF_SRC
-sed -i "s|@@DBUSER@@|$MYPIPE_DBUSER|g" $MYPIPE_APP_CONF_SRC
-sed -i "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" $MYPIPE_APP_CONF_SRC
+sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
+    -e "s|@@DBPORT@@|$MYPIPE_DBPORT|g" \
+    -e "s|@@DBUSER@@|$MYPIPE_DBUSER|g" \
+    -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" $MYPIPE_APP_CONF_SRC >$MYPIPE_APP_CONF_DEST
