@@ -13,7 +13,6 @@ mvn --version
 
 # Install MongoDB
 echo -e "\n#### Installing and starting mongodb"
-cd /tmp/storm-topology-examples/
-cp bin/yum/mongodb.repo /etc/yum.repos.d/
+cp /tmp/mypipe-example/bin/yum/mongodb.repo /etc/yum.repos.d/
 yum install mongodb-org -y
 service mongod start
