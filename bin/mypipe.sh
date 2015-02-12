@@ -44,3 +44,7 @@ sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
     -e "s|@@DBPORT@@|$MYPIPE_DBPORT|g" \
     -e "s|@@DBUSER@@|$MYPIPE_DBUSER|g" \
     -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" $MYPIPE_APP_CONF_SRC >$MYPIPE_APP_CONF_DEST
+
+# Start mypipe
+echo -e "\n###  Starting mypipe"
+cd $MYPIPE_INST_DIR && ./sbt "project runner" "runMain mypipe.runner.PipeRunner"
