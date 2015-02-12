@@ -15,7 +15,7 @@
 
 MYPIPE_DL_DIR=/tmp/mypipe
 MYPIPE_INST_DIR=/usr/lib/mypipe
-MYPIPE_APP_CONF_SRC=$MYPIPE_DL_DIR/mypipe/conf/application.conf
+MYPIPE_APP_CONF_SRC=/tmp/mypipe-example/conf/application.conf
 MYPIPE_DBNAME=mypipe
 MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
