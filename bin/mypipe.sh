@@ -15,6 +15,11 @@
 
 MYPIPE_DL_DIR=/tmp/mypipe
 MYPIPE_INST_DIR=/usr/lib/mypipe
+MYPIPE_APP_CONF_SRC=$MYPIPE_DL_DIR/mypipe/conf/application.conf
+MYPIPE_DBNAME=mypipe
+MYPIPE_DBPORT=44001
+MYPIPE_DBUSER=root
+MYPIPE_DBPASSWORD=horton
 
 # Download and build mypipe
 echo -e "\n###  Downloading and Building mypipe"
@@ -31,3 +36,10 @@ if [ -d "$MYPIPE_INST_DIR" ]; then
   rm -rf $MYPIPE_INST_DIR
 fi
 mkdir $MYPIPE_INST_DIR && cp -Rp $MYPIPE_DL_DIR/mypipe/* $MYPIPE_INST_DIR/
+
+# Lay down the populated application.conf
+echo -e "\n###  Populating and installing application.conf"
+sed -i "s|@@DBNAME@@|$MYPIPE_DBNAME|g" $MYPIPE_APP_CONF_SRC
+sed -i "s|@@DBPORT@@|$MYPIPE_DBPORT|g" $MYPIPE_APP_CONF_SRC
+sed -i "s|@@DBUSER@@|$MYPIPE_DBUSER|g" $MYPIPE_APP_CONF_SRC
+sed -i "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" $MYPIPE_APP_CONF_SRC
