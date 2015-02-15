@@ -21,12 +21,17 @@ The following outlines how to use this project.
 cd /tmp && git clone https://github.com/sakserv/mypipe-example.git
 ```
 
-* Build the project using maven
+* Install and start MongoDB
 ```
-cd /tmp/mypipe-example && mvn clean package
+cd /tmp/mypipe-example && bash -x bin/install_mongo.sh
 ```
 
-* Setup mypipe
+* Create the Kafka Topic (if auto creation of topics is disabled)
+```
+cd /tmp/mypipe-example && bash -x bin/create_kafka_topic.sh
+```
+
+* Start mypipe
 ```
 cd /tmp/mypipe-example && bash bin/mypipe.sh
 ```
