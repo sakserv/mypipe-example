@@ -33,5 +33,5 @@ cd /tmp/mypipe-example && bash -x bin/create_kafka_topic.sh
 
 * Start mypipe
 ```
-cd /tmp/mypipe-example && bash bin/mypipe.sh
+cd /tmp/mypipe-example && bash -x bin/mypipe.sh
 ```
