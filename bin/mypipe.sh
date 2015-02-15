@@ -21,6 +21,8 @@ MYPIPE_DBHOST=192.168.1.27
 MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
+MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
+#MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
 
 # Download and build mypipe
 echo -e "\n###  Downloading mypipe"
@@ -28,7 +30,7 @@ if [ -d "$MYPIPE_DL_DIR" ]; then
   rm -rf $MYPIPE_DL_DIR
 fi
 mkdir $MYPIPE_DL_DIR
-cd $MYPIPE_DL_DIR && git clone https://github.com/sakserv/mypipe.git
+cd $MYPIPE_DL_DIR && git clone $MYPIPE_GIT_URL
 
 # Copy into the inst_dir
 echo -e "\n###  Installing mypipe to $MYPIPE_INST_DIR"
