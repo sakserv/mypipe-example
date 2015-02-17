@@ -21,8 +21,8 @@ MYPIPE_DBHOST=192.168.1.27
 MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
-MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
-#MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
+#MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
+MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
 
 # Download and build mypipe
 echo -e "\n###  Downloading mypipe"
