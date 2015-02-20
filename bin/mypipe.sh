@@ -50,7 +50,7 @@ sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
     -e "s|@@DBPORT@@|$MYPIPE_DBPORT|g" \
     -e "s|@@DBUSER@@|$MYPIPE_DBUSER|g" \
     -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" \
-    -e "S|@@KAFKABROKERLIST@@|$KAFKA_BROKER_LIST|g" >$MYPIPE_APP_CONF_DEST
+    -e "s|@@KAFKABROKERLIST@@|$KAFKA_BROKER_LIST|g" >$MYPIPE_APP_CONF_DEST
 
 # Start mypipe
 echo -e "\n###  Starting mypipe"
