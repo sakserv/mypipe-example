@@ -18,8 +18,6 @@ The following outlines how to use this project.
 cd /tmp && git clone https://github.com/sakserv/mypipe-example.git
 ```
 
-```
-
 * Create the Kafka Topic (if auto creation of topics is disabled)
 ```
 cd /tmp/mypipe-example && bash -x bin/create_kafka_topic.sh <topic_name>
