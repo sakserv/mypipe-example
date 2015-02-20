@@ -21,6 +21,7 @@ MYPIPE_DBHOST=192.168.1.27
 MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
+KAFKA_BROKER_LIST=sandbox.hortonworks.com:6667
 #MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
 MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
 
@@ -48,7 +49,8 @@ echo -e "\n###  Populating and installing application.conf"
 sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
     -e "s|@@DBPORT@@|$MYPIPE_DBPORT|g" \
     -e "s|@@DBUSER@@|$MYPIPE_DBUSER|g" \
-    -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" $MYPIPE_APP_CONF_SRC >$MYPIPE_APP_CONF_DEST
+    -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" 
+    -e "S|@@KAFKABROKERLIST@@|$KAFKA_BROKER_LIST|g" >$MYPIPE_APP_CONF_DEST
 
 # Start mypipe
 echo -e "\n###  Starting mypipe"
