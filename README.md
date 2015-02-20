@@ -24,7 +24,7 @@ cd /tmp/mypipe-example && bash -x bin/create_kafka_topic.sh <topic_name>
 Note: MyPipe uses the following for topic name: <database>_<table>_generic
 ```
 
-* Start mypipe
+* Build, Configure and Start mypipe
 ```
 cd /tmp/mypipe-example && bash -x bin/mypipe.sh
 ```
