@@ -22,6 +22,8 @@ MYPIPE_DBPORT=44001
 MYPIPE_DBUSER=root
 MYPIPE_DBPASSWORD=horton
 KAFKA_BROKER_LIST="sandbox.hortonworks.com:6667"
+MYPIPE_LOG_DIR=/var/log/mypipe
+MYPIPE_LOG=$MYPIPE_LOG_DIR/mypipe-${MYPIPE_DBHOST}-${MYPIPE_DBPORT}.log
 #MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
 MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
 
@@ -51,7 +53,14 @@ sed -e "s|@@DBHOST@@|$MYPIPE_DBHOST|g" \
     -e "s|@@DBUSER@@|$MYPIPE_DBUSER|g" \
     -e "s|@@DBPASSWORD@@|$MYPIPE_DBPASSWORD|g" \
     -e "s|@@KAFKABROKERLIST@@|$KAFKA_BROKER_LIST|g" $MYPIPE_APP_CONF_SRC >$MYPIPE_APP_CONF_DEST
+    
+# Create the log dir
+if [ ! -d "$MYPIPE_LOG_DIR" ]; then
+  echo -e "\n### Creating log dir $MYPIPE_LOG_DIR"
+  mkdir -p $MYPIPE_LOG_DIR
+fi
 
 # Start mypipe
 echo -e "\n###  Starting mypipe"
-cd $MYPIPE_INST_DIR && bash ./sbt "project runner" "runMain mypipe.runner.PipeRunner"
+echo -e "Logging to: $MYPIPE_LOG"
+cd $MYPIPE_INST_DIR && bash ./sbt "project runner" "runMain mypipe.runner.PipeRunner" >>$MYPIPE_LOG 2>$1 &
