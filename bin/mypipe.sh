@@ -63,4 +63,4 @@ fi
 # Start mypipe
 echo -e "\n###  Starting mypipe"
 echo -e "Logging to: $MYPIPE_LOG"
-cd $MYPIPE_INST_DIR && bash ./sbt "project runner" "runMain mypipe.runner.PipeRunner" >>$MYPIPE_LOG 2>$1 &
+cd $MYPIPE_INST_DIR && bash ./sbt "project runner" "runMain mypipe.runner.PipeRunner" >>$MYPIPE_LOG 2>&1 &
