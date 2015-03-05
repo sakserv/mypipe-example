@@ -13,19 +13,8 @@
 #  limitations under the License.
 #
 
-MYPIPE_DL_DIR=/tmp/mypipe
-MYPIPE_INST_DIR=/usr/lib/mypipe
-MYPIPE_APP_CONF_SRC=/tmp/mypipe-example/conf/application.conf
-MYPIPE_APP_CONF_DEST=/usr/lib/mypipe/mypipe-runner/target/scala-2.10/classes/application.conf
-MYPIPE_DBHOST=192.168.1.27
-MYPIPE_DBPORT=44001
-MYPIPE_DBUSER=root
-MYPIPE_DBPASSWORD=horton
-KAFKA_BROKER_LIST="sandbox.hortonworks.com:6667"
-MYPIPE_LOG_DIR=/var/log/mypipe
-MYPIPE_LOG=$MYPIPE_LOG_DIR/mypipe-${MYPIPE_DBHOST}-${MYPIPE_DBPORT}.log
-#MYPIPE_GIT_URL=https://github.com/mardambey/mypipe.git
-MYPIPE_GIT_URL=https://github.com/sakserv/mypipe.git
+# Source the config
+. /tmp/mypipe-example/conf/env.cfg
 
 # Download and build mypipe
 echo -e "\n###  Downloading mypipe"
